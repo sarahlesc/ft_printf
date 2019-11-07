@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slescure <slescure@student.42.fr>          +#+  +:+       +#+        */
+/*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:08:00 by slescure          #+#    #+#             */
-/*   Updated: 2019/11/04 16:54:56 by slescure         ###   ########.fr       */
+/*   Updated: 2019/11/07 17:15:42 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libc.h>
+#include "ft_printf.h"
 
 int ft_printf(const char *fmt, ...)
 {
+	t_flag	flag;
     int nb; // nombre de caractères qu'on écrit
     va_list ap; // permet de lire les arguments
 
@@ -30,7 +31,8 @@ int ft_printf(const char *fmt, ...)
         else
         {
             fmt++;
-            ft_check((char *)fmt, &nb, ap);
+            flag = ft_check((char *)fmt, ap);
+			nb = ft_switch(flag, nb, ap);
         }
     }
     return (nb);
