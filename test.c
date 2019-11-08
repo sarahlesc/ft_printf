@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:45:43 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/07 16:42:56 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/08 13:54:29 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int main()
 {
-    char *pa;
+    char  *str;
+    if (!(str = malloc(sizeof(char))))
+		exit(0);
+    *str = 'f';
 
-    pa = "01234568";
-    printf("|%d salut|", -5);
+    printf("|%s", str);
 }
