@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/08 13:55:52 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/08 14:45:30 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int     ft_process(t_flag flag, va_list ap)
 {
-    char* str;        
+    char *str;        
 
         ft_switch(flag, str, ap);
         if (flag.conv == 'd' || flag.conv == 'i' || flag.conv == 'u' || flag.conv
@@ -26,12 +26,12 @@ int     ft_process(t_flag flag, va_list ap)
     return (ft_strlen(str));
 }
 
-int     ft_switch(t_flag flag, char *str, va_list ap)
+void     ft_switch(t_flag flag, char *str, va_list ap)
 {
     if (flag.conv == 'd ' || flag.conv == 'i')
         ft_conv_int();
     if (flag.conv == 'x' || flag.conv == 'X')
-        ft_conv_hexa();
+        ft_conv_hexa(flag, str, ap);
     if (flag.conv == 's' || flag.conv == 'c')
         ft_conv_str();
     if (flag.conv == 'p')

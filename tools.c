@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outils.c                                           :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:22:36 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/08 13:08:32 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/08 14:38:19 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	unsigned int	i;
 	int				signe;
@@ -40,7 +40,7 @@ int	ft_atoi(const char *str)
 	return (resultat * signe);
 }
 
-int	is_conv(char c, char *set)
+int		is_conv(char c, char *set)
 {
 	int i;
 
@@ -54,7 +54,7 @@ int	is_conv(char c, char *set)
 	return (0);
 }
 
-int	ft_strlen(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
@@ -62,4 +62,30 @@ int	ft_strlen(char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
+}
+
+void    ft_putstr(char *str)
+{
+        int i;
+
+        i = 0;
+        while (str[i] != '\0')
+        {
+                i++;
+        }
+        write(1, str, i);
+}
+
+char	*ft_toupper(char *str)
+{
+	unsigned int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
+		i++;
+	}
+	return (str);
 }

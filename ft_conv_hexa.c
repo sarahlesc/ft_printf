@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_conv_hexa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 13:45:43 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/08 15:06:16 by selgrabl         ###   ########.fr       */
+/*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
+/*   Updated: 2019/11/08 15:31:54 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main()
+void	ft_conv_hexa(t_flag flag, char *str, va_list ap)
 {
-    char  *str;
+	unsigned int	i;
 
-    str = "fnjghrhg";
-
-    printf("|%x", -1);
+	i = va_arg(ap, unsigned int);
 }
