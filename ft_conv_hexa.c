@@ -6,15 +6,47 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/08 15:31:54 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/09 14:36:01 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_conv_hexa(t_flag flag, char *str, va_list ap)
+void			ft_conv_hexa(t_flag flag, char *str, va_list ap)
 {
-	unsigned int	i;
+	unsigned long	i;
+	int				x;
+	int				j;
+	int				len;
+	char			*base;
 
-	i = va_arg(ap, unsigned int);
+	base = "0123456789abcdef";
+	i = va_arg(ap, unsigned long);
+	len = 1;
+	while (i / ft_recursive_power(16, len) > 0)
+		len++;
+	if (!(str = malloc(sizeof(char) * len + 1)))
+		exit(0);
+	len--;
+	x = len;
+	while (j <= x)
+	{
+		str[j] = base[(i / ft_recursive_power(16, len))];
+		i = i % ft_recursive_power(16, len);
+		len--;
+		j++;
+	}
+	str[j] = '\0';
+	if (flag.conv == 'X')
+		str = ft_toupper(str);
+}
+
+unsigned long	ft_recursive_power(int nb, int power)
+{
+	if (power < 0)
+		exit(0);
+	else if (power > 0)
+		return (nb * ft_recursive_power(nb, power - 1));
+	else
+		return (1);
 }
