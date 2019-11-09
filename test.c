@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:45:43 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/09 13:01:25 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/09 17:17:30 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int main()
 
     str = "fnjghrhg";
 
-    printf("|%s","lsl");
+    printf("|%x",str);
 }
