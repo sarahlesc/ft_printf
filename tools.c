@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:22:36 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/08 14:38:19 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/09 18:14:16 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ int		ft_atoi(const char *str)
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\f'
 			|| str[i] == '\r' || str[i] == ' ' || str[i] == '\v')
 		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			signe = -signe;
-		i++;
-		if (str[i] == '+' || str[i] == '-')
-			return (0);
-	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		resultat = (resultat * 10) + (str[i] - 48);
@@ -70,9 +62,7 @@ void    ft_putstr(char *str)
 
         i = 0;
         while (str[i] != '\0')
-        {
                 i++;
-        }
         write(1, str, i);
 }
 
