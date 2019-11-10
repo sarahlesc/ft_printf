@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:22:36 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 12:34:40 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 13:48:49 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_atoi(const char *str)
 
 int		is_conv(char c, char *set)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (set[i])
@@ -56,14 +56,14 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-        int i;
+	int			i;
 
-        i = 0;
-        while (str[i] != '\0')
-                i++;
-        write(1, str, i);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	write(1, str, i);
 }
 
 char	*ft_toupper(char *str)

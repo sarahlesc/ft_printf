@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 15:58:12 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/09 17:47:13 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 13:49:00 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ long			ft_longueur(long n)
 	return (l);
 }
 
-char		*ft_itoa(long nb)
+char			*ft_itoa(long nb)
 {
 	long				sign;
 	long				len;

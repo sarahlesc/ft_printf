@@ -5,14 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/09 12:45:09 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 13:18:16 by selgrabl         ###   ########.fr       */
+/*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
+/*   Updated: 2019/11/10 13:46:36 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_conv_str(t_flag flag, char **str, va_list ap)
+void			ft_conv_hexa(t_flag flag, char **str, va_list ap)
+{
+	unsigned long	i;
+	int				x;
+	int				j;
+	int				len;
+	char			*base;
+
+	base = "0123456789abcdef";
+	i = va_arg(ap, unsigned long);
+	len = 1;
+	j = -1;
+	while (i / ft_recursive_power(16, len) > 0)
+		len++;
+	if (!(*str = malloc(sizeof(char) * len + 1)))
+		exit(0);
+	x = --len;
+	while (++j <= x)
+	{
+		(*str)[j] = base[(i / ft_recursive_power(16, len))];
+		i = i % ft_recursive_power(16, len);
+		len--;
+	}
+	(*str)[j] = '\0';
+	if (flag.conv == 'X')
+		*str = ft_toupper(*str);
+}
+
+unsigned long	ft_recursive_power(int nb, int power)
+{
+	if (power < 0)
+		exit(0);
+	else if (power > 0)
+		return (nb * ft_recursive_power(nb, power - 1));
+	else
+		return (1);
+}
+
+void			ft_conv_str(t_flag flag, char **str, va_list ap)
 {
 	if (flag.conv == 'c')
 	{
@@ -29,7 +67,7 @@ void	ft_conv_str(t_flag flag, char **str, va_list ap)
 	}
 }
 
-void	ft_conv_point(t_flag flag, char **str, va_list ap)
+void			ft_conv_point(t_flag flag, char **str, va_list ap)
 {
 	int		i;
 	char	*tmp;

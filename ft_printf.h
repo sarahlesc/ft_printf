@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:47:05 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 12:28:18 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 14:28:36 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ typedef struct s_flag
 	int vdc;; //prend 0 si rien, 1 si -, 2 si 0
     int prec; //precision
     int conv; //convertisseur
+	int fmt;
 }               t_flag;
 
 int				ft_printf(const char *, ...);
 int				ft_strlen(char *str);
-t_flag			ft_check(char *fmt, va_list ap);
+t_flag			ft_check(char *fmt, va_list ap, t_flag);
 t_flag			check_vdc(char *fmt, t_flag flag);
 t_flag			check_ldc(char *fmt, t_flag flag, va_list ap);
 t_flag			check_prec(char *fmt, t_flag flag, va_list ap);
@@ -42,8 +43,6 @@ void			ft_putstr(char *str);
 char			*ft_toupper(char *str);
 void			ft_conv_hexa(t_flag flag, char **str, va_list ap);
 void			ft_conv_str(t_flag flag, char **str, va_list ap);
-void			ft_conv_int(t_flag flag, char **str, va_list ap);
-void			ft_conv_unsint(t_flag flag, char **str, va_list ap);
 void			ft_conv_point(t_flag flag, char **str, va_list ap);
 unsigned long	ft_recursive_power(int nb, int power);
 
