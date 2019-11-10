@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:46:33 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/09 18:23:19 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 13:05:58 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 t_flag		ft_check(char *fmt, va_list ap)
 {
 	t_flag	flag;
-	char	*conv;
 
-	conv = "cspduxX%";
 	flag = check_vdc(fmt, flag);
 	flag = check_ldc(fmt, flag, ap);
 	flag = check_prec(fmt, flag, ap);
 	if (flag.prec != 0)
 		fmt++;
-	if (is_conv(*fmt, conv) == 0 || flag.prec == -1)
+	if (is_conv(*fmt, "cspduxX%") == 0 || flag.prec == -1)
 		exit(0);
 	else
 		flag.conv = *fmt;
@@ -65,9 +63,6 @@ t_flag		check_ldc(char *fmt, t_flag flag, va_list ap)
 
 t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
 {
-	char	*conv;
-
-	conv = "cspduxX%";
 	if (*fmt == '.')
 	{
 		fmt++;
@@ -75,7 +70,7 @@ t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
 			flag.prec = ft_atoi(fmt);
 		else if (*fmt == '*')
 			flag.prec = va_arg(ap, int);
-		else if (is_conv(*fmt, conv) == 0)
+		else if (is_conv(*fmt, "cspduxX%") == 0)
 			flag.prec = -1;
 		else
 			flag.prec = 0;

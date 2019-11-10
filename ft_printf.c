@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:08:00 by slescure          #+#    #+#             */
-/*   Updated: 2019/11/09 18:51:09 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 12:40:45 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int ft_printf(const char *fmt, ...)
     va_list ap; // permet de lire les arguments
     char *str;
     
+    str = NULL;
     va_start(ap, fmt); // on lit les arguments de la liste ap
     nb = 0;
     while (*fmt)
@@ -33,9 +34,11 @@ int ft_printf(const char *fmt, ...)
         {
             fmt++;
             flag = ft_check((char *)fmt, ap);
-			str = ft_process(flag, ap, str);
+			nb += ft_process(flag, ap, &str);
+            while(is_conv(*fmt, "cspduxX%") != 1)
+				fmt++;
+			fmt++;
             ft_putstr(str);
-            nb += strlen(str);
         }
     }
     return (nb);

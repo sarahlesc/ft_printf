@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:47:05 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/09 18:51:35 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 12:28:18 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ t_flag			check_prec(char *fmt, t_flag flag, va_list ap);
 int				ft_atoi(const char *str);
 char			*ft_itoa(long n);
 int				is_conv(char c, char *set);
-char			*ft_switch(t_flag flag, char *str, va_list ap);
-char			*ft_process(t_flag flag, va_list ap, char *str);
+void			ft_switch(t_flag flag, char **str, va_list ap);
+int				ft_process(t_flag flag, va_list ap, char **str);
 void			ft_putstr(char *str);
 char			*ft_toupper(char *str);
-char			*ft_conv_hexa(t_flag flag, char *str, va_list ap);
-char			*ft_conv_str(t_flag flag, char *str, va_list ap);
-char			*ft_conv_int(t_flag flag, char *str, va_list ap);
-char			*ft_conv_unsint(t_flag flag, char *str, va_list ap);
-char			*ft_conv_point(t_flag flag, char *str, va_list ap);
+void			ft_conv_hexa(t_flag flag, char **str, va_list ap);
+void			ft_conv_str(t_flag flag, char **str, va_list ap);
+void			ft_conv_int(t_flag flag, char **str, va_list ap);
+void			ft_conv_unsint(t_flag flag, char **str, va_list ap);
+void			ft_conv_point(t_flag flag, char **str, va_list ap);
 unsigned long	ft_recursive_power(int nb, int power);
 
 #endif
