@@ -6,11 +6,32 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 13:46:36 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 15:13:02 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_switch(t_flag flag, char **str, va_list ap)
+{
+	if (flag.conv == 'd' || flag.conv == 'i')
+		*str = ft_itoa(va_arg(ap, long));
+	if (flag.conv == 'x' || flag.conv == 'X')
+		ft_conv_hexa(flag, str, ap);
+	if (flag.conv == 's' || flag.conv == 'c')
+		ft_conv_str(flag, str, ap);
+	if (flag.conv == 'p')
+		ft_conv_point(flag, str, ap);
+	if (flag.conv == 'u')
+		*str = ft_itoa((long)va_arg(ap, unsigned int));
+	if (flag.conv == '%')
+	{
+		if (!(*str = malloc(sizeof(char) * 2)))
+			exit(0);
+		(*str)[0] = '%';
+		(*str)[1] = '\0';
+	}
+}
 
 void			ft_conv_hexa(t_flag flag, char **str, va_list ap)
 {
