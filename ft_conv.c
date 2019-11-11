@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 15:25:34 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/11 18:31:49 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void			ft_switch(t_flag flag, char **str, va_list ap)
 {
 	if (flag.conv == 'd' || flag.conv == 'i')
-		*str = ft_itoa(va_arg(ap, long));
+		*str = ft_itoa((long)va_arg(ap, int));
 	if (flag.conv == 'x' || flag.conv == 'X')
 		ft_conv_hexa(flag, str, ap);
 	if (flag.conv == 's' || flag.conv == 'c')
@@ -83,13 +83,14 @@ void			ft_conv_point(t_flag flag, char **str, va_list ap)
 	int		i;
 	char	*tmp;
 
-	i = 2;
+	i = 0;
 	ft_conv_hexa(flag, str, ap);
-	*str = malloc(sizeof(char) * (strlen(*str) + 2));
 	tmp = *str;
-	while (i < (strlen(*str)))
+	if (!(*str = malloc(sizeof(char *) * (ft_strlen(*str) + 2))))
+		exit(0);
+	while (i <= (ft_strlen(tmp)))
 	{
-		(*str)[i] = tmp[i - 2];
+		(*str)[i + 2] = tmp[i];
 		i++;
 	}
 	(*str)[0] = '0';

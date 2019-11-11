@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:08:00 by slescure          #+#    #+#             */
-/*   Updated: 2019/11/10 16:15:58 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/11 18:49:26 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_printf(const char *fmt, ...)
 		{
 			fmt++;
 			flag = ft_check((char *)fmt, ap, flag);
-			ft_putstr(ft_itoa(flag.prec));
 			fmt += ft_process(flag, ap, &str);
 			ft_putstr(str);
 			nb += ft_strlen(str);
