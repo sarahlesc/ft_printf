@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 15:58:12 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 13:49:00 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 15:58:01 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,14 @@ char			*ft_itoa(long nb)
 	if (sign == 1)
 		str[0] = '-';
 	return (str);
+}
+
+unsigned long	ft_recursive_power(int nb, int power)
+{
+	if (power < 0)
+		exit(0);
+	else if (power > 0)
+		return (nb * ft_recursive_power(nb, power - 1));
+	else
+		return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/10 15:13:02 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/10 15:25:34 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_switch(t_flag flag, char **str, va_list ap)
+void			ft_switch(t_flag flag, char **str, va_list ap)
 {
 	if (flag.conv == 'd' || flag.conv == 'i')
 		*str = ft_itoa(va_arg(ap, long));
@@ -59,16 +59,6 @@ void			ft_conv_hexa(t_flag flag, char **str, va_list ap)
 	(*str)[j] = '\0';
 	if (flag.conv == 'X')
 		*str = ft_toupper(*str);
-}
-
-unsigned long	ft_recursive_power(int nb, int power)
-{
-	if (power < 0)
-		exit(0);
-	else if (power > 0)
-		return (nb * ft_recursive_power(nb, power - 1));
-	else
-		return (1);
 }
 
 void			ft_conv_str(t_flag flag, char **str, va_list ap)
