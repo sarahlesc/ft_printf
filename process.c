@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/11 18:56:39 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/12 17:49:37 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int			ft_process(t_flag flag, va_list ap, char **str)
 {
+
 	ft_switch(flag, str, ap);
 	if (flag.prec != 0)
 		if (is_conv(flag.conv, "diuxX") == 1)
@@ -22,7 +23,6 @@ int			ft_process(t_flag flag, va_list ap, char **str)
 			ft_prec_*str(flag, str);
 		ft_ldc(flag, *str);*/
 		//ft_putstr(ft_itoa(flag.prec));
-			free(*str);
 	return	(flag.fmt);
 }
 
@@ -108,6 +108,8 @@ t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
 		}
 	}
 	else
+	{
 		flag.prec = 0;
+	}
 	return (flag);
 }

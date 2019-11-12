@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:08:00 by slescure          #+#    #+#             */
-/*   Updated: 2019/11/11 18:49:26 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/12 18:21:27 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ int	ft_printf(const char *fmt, ...)
 			fmt++;
 			flag = ft_check((char *)fmt, ap, flag);
 			fmt += ft_process(flag, ap, &str);
-			ft_putstr(str);
 			nb += ft_strlen(str);
+			ft_putstr(str);
+			free(str);
 		}
 	return (nb);
 }

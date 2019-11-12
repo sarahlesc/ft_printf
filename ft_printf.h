@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:47:05 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/11 18:49:22 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/12 18:50:21 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void			ft_prec_num(t_flag flag, char **str);
 void			ft_conv_hexa(t_flag flag, char **str, va_list ap);
 void			ft_conv_str(t_flag flag, char **str, va_list ap);
 void			ft_conv_point(t_flag flag, char **str, va_list ap);
+void			ft_conv_int(t_flag flag, char **str, va_list ap);
 unsigned long	ft_recursive_power(int nb, int power);
 int				ft_strlen(char *str);
 void			ft_putstr(char *str);
