@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/12 18:49:47 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/12 19:30:43 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void			ft_conv_str(t_flag flag, char **str, va_list ap)
 	}
 	else
 	{
+		i = 0;
 		tmp = va_arg(ap, char *);
 		if (!(*str = malloc(sizeof(char *) * ft_strlen(tmp))))
 			exit(0);

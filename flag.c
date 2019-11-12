@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:26:34 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/12 18:39:29 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/12 19:31:23 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,19 @@ void	ft_prec_num(t_flag flag, char **str)
 		}
 		((*str)[flag.prec + i]) = '\0';
 		free(tmp);
+	}
+}
+
+void	ft_prec_str(t_flag flag, char **str)
+{
+	int i;
+	if (flag.prec < ft_strlen(*str))
+	{
+		i = flag.prec;
+		while (i < ft_strlen(*str))
+		{
+			(*str)[i] = '\0';
+			i++;
+		}
 	}
 }
