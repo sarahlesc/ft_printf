@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:47:05 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/12 19:08:10 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 17:51:51 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void			ft_switch(t_flag flag, char **str, va_list ap);
 int				ft_process(t_flag flag, va_list ap, char **str);
 void			ft_prec_num(t_flag flag, char **str);
 void	        ft_prec_str(t_flag flag, char **str);
+void			ft_ldc(t_flag flag, char **str);
+void			ft_ldcG(t_flag flag, char **str);
+void			ft_ldc0(t_flag flag, char **str);
 void			ft_conv_hexa(t_flag flag, char **str, va_list ap);
 void			ft_conv_str(t_flag flag, char **str, va_list ap);
 void			ft_conv_point(t_flag flag, char **str, va_list ap);

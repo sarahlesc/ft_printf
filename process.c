@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 15:59:14 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 16:15:21 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int			ft_process(t_flag flag, va_list ap, char **str)
 			{
 				if (flag.vdc == 0)
 					ft_ldc(flag, str);
+				else
 				(flag.vdc == 1) ?  (ft_ldcG(flag, str)) : ft_ldc0(flag, str);
 			}
 	return	(flag.fmt);
