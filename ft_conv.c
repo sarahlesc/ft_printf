@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/12 19:30:43 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:43:31 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void			ft_switch(t_flag flag, char **str, va_list ap)
 {
-	char	*tmp;
-	int		i;
-
 	if (flag.conv == 'x' || flag.conv == 'X')
 		ft_conv_hexa(flag, str, ap);
 	if (flag.conv == 's' || flag.conv == 'c')

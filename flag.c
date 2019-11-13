@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:26:34 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 18:08:55 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:43:04 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void	ft_ldc0(t_flag flag, char **str)
 
 void	ft_ldcG(t_flag flag, char **str)
 {
+	
 	int		j;
 	int		p;
 	int		a;
