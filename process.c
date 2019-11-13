@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 16:15:21 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:27:01 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_flag		ft_check(char *fmt, va_list ap, t_flag flag)
 	flag = check_prec(fmt, flag, ap);
 	fmt += flag.fmt - tmpf;
 
-	if (is_conv(*fmt, "cspduxX%") == 0 || flag.prec == -1)
+	if (is_conv(*fmt, "cspdiuxX%") == 0 || flag.prec == -1)
 		exit(0);
 	else
 		flag.conv = *fmt;
@@ -109,7 +109,7 @@ t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
 			flag.prec = ft_atoi(fmt);
 		else if (*fmt == '*')
 			flag.prec = va_arg(ap, int);
-		else if (is_conv(*fmt, "cspduxX%") == 0)
+		else if (is_conv(*fmt, "cspdiuxX%") == 0)
 			exit(0);
 		else
 			flag.prec = 0;

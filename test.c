@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:45:43 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 18:08:19 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:37:36 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int main()
 
     str = "La pizza";
     
-    ft_printf("%-*s coute %*d%c\n%% cad %x ou %X en Hexa %u\n addr : %p\n",10 , str, -8, -123, '$', -1234, 123, -1, str);
-    printf("%-*s coute %*d%c\n%% cad %x ou %X en Hexa %u\n addr : %p\n",10, str, -8, -123, '$', -1234, 123, -1, str);
+    ft_printf("%s coute %i%c\n%% cad %x ou %X en Hexa %u\n addr : %p\n", str, -2147483648, '$', -1234, 123, -1, str);
+    //printf("%-*s coute %*d%c\n%% cad %x ou %X en Hexa %u\n addr : %p\n",10, str, -8, -123, '$', -1234, 123, -1, str);
     //printf("%0*.5d\n",10,6);
-    //while (1)
-    //;
+    ft_printf("|%i|\n", -2147483648);
+    while (1)
+    ;
 }

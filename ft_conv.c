@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 18:43:31 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:20:44 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ void			ft_conv_str(t_flag flag, char **str, va_list ap)
 	{
 		i = 0;
 		tmp = va_arg(ap, char *);
-		if (!(*str = malloc(sizeof(char *) * ft_strlen(tmp))))
-			exit(0);
 		if (tmp == NULL)
 			tmp = "(null)";
+		if (!(*str = malloc(sizeof(char *) * ft_strlen(tmp))))
+			exit(0);
 		while (i < ft_strlen(tmp))
 		{
 			(*str)[i] = tmp[i];
@@ -112,12 +112,14 @@ void			ft_conv_int(t_flag flag, char **str, va_list ap)
 {
 	int		i;
 	char	*tmp;
+	long	g;
 
 	i = -1;
 	if (flag.conv == 'd' || flag.conv == 'i')
 	{
-		tmp = ft_itoa((long)va_arg(ap, int));
-		if (!(*str = malloc(sizeof(char) * (ft_strlen(tmp) + 1))))
+		g = va_arg(ap, int);
+		tmp = ft_itoa(g);
+		if (!(*str = malloc(sizeof(char *) * (ft_strlen(tmp) + 1))))
 			exit(0);
 		while (i++ < ft_strlen(tmp))
 			(*str)[i] = tmp[i];
