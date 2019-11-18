@@ -6,15 +6,15 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 19:27:01 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:23:37 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_process(t_flag flag, va_list ap, char **str)
+t_flag			ft_process(t_flag flag, va_list ap, char **str)
 {
-
+	flag.prblm = 0;
 	ft_switch(flag, str, ap);
 	if (flag.prec > 0)
 	{
@@ -23,6 +23,12 @@ int			ft_process(t_flag flag, va_list ap, char **str)
 		if (flag.conv == 's')
 			ft_prec_str(flag, str);
 	}
+	else if (flag.prec == 0 && is_conv(flag.conv, "diuxX") == 1)
+		if((*str)[0] == '0' && ft_strlen(*str) == 1)
+		{
+			flag.prblm = 1;
+			*str[0] = ' ';
+		}
 	if (flag.ldc > 0)
 			{
 				if (flag.vdc == 0)
@@ -30,7 +36,7 @@ int			ft_process(t_flag flag, va_list ap, char **str)
 				else
 				(flag.vdc == 1) ?  (ft_ldcG(flag, str)) : ft_ldc0(flag, str);
 			}
-	return	(flag.fmt);
+	return	(flag);
 }
 
 t_flag		ft_check(char *fmt, va_list ap, t_flag flag)
@@ -48,7 +54,7 @@ t_flag		ft_check(char *fmt, va_list ap, t_flag flag)
 	flag = check_prec(fmt, flag, ap);
 	fmt += flag.fmt - tmpf;
 
-	if (is_conv(*fmt, "cspdiuxX%") == 0 || flag.prec == -1)
+	if (is_conv(*fmt, "cspdiuxX%") == 0)
 		exit(0);
 	else
 		flag.conv = *fmt;
@@ -80,7 +86,7 @@ t_flag		check_vdc(char *fmt, t_flag flag)
 
 t_flag		check_ldc(char *fmt, t_flag flag, va_list ap)
 {
-	if (ft_atoi(fmt) != 0)
+	if (ft_atoi(fmt) > 0)
 		flag.ldc = ft_atoi(fmt);
 	else if (*fmt == '*')
 		flag.ldc = va_arg(ap, int);
@@ -105,7 +111,7 @@ t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
 	{
 		fmt++;
 		flag.fmt++;
-		if (ft_atoi(fmt) != 0)
+		if (ft_atoi(fmt) >= 0)
 			flag.prec = ft_atoi(fmt);
 		else if (*fmt == '*')
 			flag.prec = va_arg(ap, int);
@@ -121,7 +127,9 @@ t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
 	}
 	else
 	{
-		flag.prec = 0;
+		flag.prec = -1;
 	}
+	if (flag.prec >= 0 && flag.vdc == 2)
+		flag.vdc = 0;
 	return (flag);
 }

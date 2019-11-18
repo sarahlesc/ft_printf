@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 19:20:44 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:49:51 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			ft_conv_hexa(t_flag flag, char **str, va_list ap)
 	char					*base;
 
 	base = "0123456789abcdef";
-	i = va_arg(ap, unsigned int);
+	i = (flag.conv == 'p') ? va_arg(ap, long) : va_arg(ap, unsigned int);
 	len = 1;
 	j = -1;
 	while (i / ft_recursive_power(16, len) > 0)
@@ -96,7 +96,9 @@ void			ft_conv_point(t_flag flag, char **str, va_list ap)
 	i = 0;
 	ft_conv_hexa(flag, str, ap);
 	tmp = *str;
-	if (!(*str = malloc(sizeof(char *) * (ft_strlen(*str) + 2))))
+	if (tmp[0] == '0' && tmp[1] == '\0' && flag.prec == 0)
+		tmp[0] = '\0';
+	if (!(*str = malloc(sizeof(char *) * (ft_strlen(tmp) + 2))))
 		exit(0);
 	while (i <= (ft_strlen(tmp)))
 	{

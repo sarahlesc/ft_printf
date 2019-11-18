@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:26:34 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/13 18:43:04 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 15:27:53 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	ft_ldc0(t_flag flag, char **str)
 	int		i;
 	int		a;
 	char	*tmp;
-
+	
 	if (flag.ldc > ft_strlen(*str))
 	{
 		i = ((*str)[0] == '-') ? 1 : 0;

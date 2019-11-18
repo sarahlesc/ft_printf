@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:08:00 by slescure          #+#    #+#             */
-/*   Updated: 2019/11/12 18:21:27 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 15:03:46 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_printf(const char *fmt, ...)
 	char	*str;
 	int		nb;
 
-	str = NULL;
 	nb = 0;
 	va_start(ap, fmt);
 	while (*fmt)
@@ -33,9 +32,10 @@ int	ft_printf(const char *fmt, ...)
 		{
 			fmt++;
 			flag = ft_check((char *)fmt, ap, flag);
-			fmt += ft_process(flag, ap, &str);
-			nb += ft_strlen(str);
-			ft_putstr(str);
+			flag = ft_process(flag, ap, &str);
+			fmt += flag.fmt;
+			(flag.prblm == 0 || flag.ldc > 0) ? nb += ft_strlen(str) : 0;
+			(flag.prblm == 0 || flag.ldc > 0) ? ft_putstr(str) : 0;
 			free(str);
 		}
 	return (nb);
