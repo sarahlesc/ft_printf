@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/18 17:38:59 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:53:10 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,22 @@ t_flag			ft_process(t_flag flag, va_list ap, char **str)
 			ft_prec_str(flag, str);
 	}
 	if (flag.prec == 0 && is_conv(flag.conv, "diuxX") == 1)
-		if((*str)[0] == '0' && ft_strlen(*str) == 1)
+		if ((*str)[0] == '0' && ft_strlen(*str) == 1)
 		{
 			flag.prblm = 1;
 			*str[0] = ' ';
 		}
 	if (flag.ldc > 0)
-			{
-				if (flag.vdc == 0)
-					ft_ldc(flag, str);
-				else
-				(flag.vdc == 1) ?  (ft_ldcG(flag, str)) : ft_ldc0(flag, str);
-			}
-	return	(flag);
+	{
+		if (flag.vdc == 0)
+			ft_ldc(flag, str);
+		else
+			(flag.vdc == 1) ? (ft_ldcg(flag, str)) : ft_ldc0(flag, str);
+	}
+	return (flag);
 }
 
-t_flag		ft_check(char *fmt, va_list ap, t_flag flag)
+t_flag			ft_check(char *fmt, va_list ap, t_flag flag)
 {
 	int tmpf;
 
@@ -53,7 +53,6 @@ t_flag		ft_check(char *fmt, va_list ap, t_flag flag)
 	tmpf = flag.fmt;
 	flag = check_prec(fmt, flag, ap);
 	fmt += flag.fmt - tmpf;
-
 	if (is_conv(*fmt, "cspdiuxX%") == 0)
 		exit(0);
 	else
@@ -62,7 +61,7 @@ t_flag		ft_check(char *fmt, va_list ap, t_flag flag)
 	return (flag);
 }
 
-t_flag		check_vdc(char *fmt, t_flag flag)
+t_flag			check_vdc(char *fmt, t_flag flag)
 {
 	flag.vdc = 0;
 	while (*fmt == '0' || *fmt == '-')
@@ -84,7 +83,7 @@ t_flag		check_vdc(char *fmt, t_flag flag)
 	return (flag);
 }
 
-t_flag		check_ldc(char *fmt, t_flag flag, va_list ap)
+t_flag			check_ldc(char *fmt, t_flag flag, va_list ap)
 {
 	if (ft_atoi(fmt) > 0)
 		flag.ldc = ft_atoi(fmt);
@@ -105,7 +104,7 @@ t_flag		check_ldc(char *fmt, t_flag flag, va_list ap)
 	return (flag);
 }
 
-t_flag		check_prec(char *fmt, t_flag flag, va_list ap)
+t_flag			check_prec(char *fmt, t_flag flag, va_list ap)
 {
 	if (*fmt == '.')
 	{

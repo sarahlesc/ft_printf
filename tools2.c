@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 15:58:12 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/12 17:40:57 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:55:18 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,3 @@ unsigned long	ft_recursive_power(int nb, int power)
 	else
 		return (1);
 }
-
