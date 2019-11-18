@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:08:00 by slescure          #+#    #+#             */
-/*   Updated: 2019/11/18 15:03:46 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/18 19:56:05 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	ft_printf(const char *fmt, ...)
 	while (*fmt)
 		if (*fmt != '%')
 		{
-			write(1, fmt, 1);
-			fmt++;
+			write(1, fmt++, 1);
 			nb++;
 		}
 		else
@@ -38,5 +37,6 @@ int	ft_printf(const char *fmt, ...)
 			(flag.prblm == 0 || flag.ldc > 0) ? ft_putstr(str) : 0;
 			free(str);
 		}
+	va_end(ap);
 	return (nb);
 }
