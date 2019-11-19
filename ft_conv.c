@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/18 16:49:51 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/19 12:38:25 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void			ft_switch(t_flag flag, char **str, va_list ap)
 			exit(0);
 		(*str)[0] = '%';
 		(*str)[1] = '\0';
+		flag.prblm = 2;
 	}
 }
 
