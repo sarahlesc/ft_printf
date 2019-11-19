@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:47:05 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/19 14:43:53 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:59:38 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <libc.h>
 
 typedef struct		s_flag
 {
