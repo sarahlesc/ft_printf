@@ -6,18 +6,18 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:38:52 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/19 12:38:25 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/19 14:44:33 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_switch(t_flag flag, char **str, va_list ap)
+t_flag			ft_switch(t_flag flag, char **str, va_list ap)
 {
 	if (flag.conv == 'x' || flag.conv == 'X')
 		ft_conv_hexa(flag, str, ap);
 	if (flag.conv == 's' || flag.conv == 'c')
-		ft_conv_str(flag, str, ap);
+		flag = ft_conv_str(flag, str, ap);
 	if (flag.conv == 'p')
 		ft_conv_point(flag, str, ap);
 	if (flag.conv == 'u' || flag.conv == 'd' || flag.conv == 'i')
@@ -28,8 +28,8 @@ void			ft_switch(t_flag flag, char **str, va_list ap)
 			exit(0);
 		(*str)[0] = '%';
 		(*str)[1] = '\0';
-		flag.prblm = 2;
 	}
+	return (flag);
 }
 
 void			ft_conv_hexa(t_flag flag, char **str, va_list ap)
@@ -60,7 +60,7 @@ void			ft_conv_hexa(t_flag flag, char **str, va_list ap)
 		*str = ft_toupper(*str);
 }
 
-void			ft_conv_str(t_flag flag, char **str, va_list ap)
+t_flag			ft_conv_str(t_flag flag, char **str, va_list ap)
 {
 	char	*tmp;
 	int		i;
@@ -70,23 +70,22 @@ void			ft_conv_str(t_flag flag, char **str, va_list ap)
 		if (!(*str = malloc(sizeof(char *) * 2)))
 			exit(0);
 		(*str)[0] = va_arg(ap, int);
+		flag.prblm = ((*str)[0] == '\0') ? 2 : 0;
 		(*str)[1] = '\0';
 	}
 	else
 	{
-		i = 0;
+		i = -1;
 		tmp = va_arg(ap, char *);
 		if (tmp == NULL)
 			tmp = "(null)";
 		if (!(*str = malloc(sizeof(char *) * ft_strlen(tmp))))
 			exit(0);
-		while (i < ft_strlen(tmp))
-		{
+		while (i++ < ft_strlen(tmp))
 			(*str)[i] = tmp[i];
-			i++;
-		}
 		(*str)[i] = '\0';
 	}
+	return (flag);
 }
 
 void			ft_conv_point(t_flag flag, char **str, va_list ap)

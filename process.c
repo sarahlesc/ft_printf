@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:16:11 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/18 19:50:32 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:12:46 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_flag			ft_process(t_flag flag, va_list ap, char **str)
 {
 	flag.prblm = 0;
-	ft_switch(flag, str, ap);
+	flag = ft_switch(flag, str, ap);
 	if (flag.prec >= 0)
 	{
 		if (is_conv(flag.conv, "diuxX") == 1 && flag.prec > 0)
