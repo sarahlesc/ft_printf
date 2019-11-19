@@ -6,7 +6,7 @@
 /*   By: selgrabl <selgrabl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:26:34 by selgrabl          #+#    #+#             */
-/*   Updated: 2019/11/19 16:57:25 by selgrabl         ###   ########.fr       */
+/*   Updated: 2019/11/19 19:26:20 by selgrabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	ft_ldc(t_flag flag, char **str)
 	int		a;
 	char	*tmp;
 
-	(flag.prblm == 2) ? flag.ldc -= 1 : 0;
 	if (flag.ldc > ft_strlen(*str))
 	{
 		a = -1;
@@ -78,6 +77,7 @@ void	ft_ldc(t_flag flag, char **str)
 		while (p >= 0)
 			((*str)[p--]) = ' ';
 		((*str)[flag.ldc]) = '\0';
+		(flag.prblm == 2) ? ((*str)[flag.ldc - 1]) = '\0' : 0;
 		free(tmp);
 	}
 }
@@ -117,7 +117,6 @@ void	ft_ldcg(t_flag flag, char **str)
 	int		a;
 	char	*tmp;
 
-	(flag.prblm == 2) ? flag.ldc -= 1 : 0;
 	if (flag.ldc > ft_strlen(*str))
 	{
 		a = -1;
@@ -134,6 +133,7 @@ void	ft_ldcg(t_flag flag, char **str)
 			p--;
 		}
 		((*str)[flag.ldc]) = '\0';
+		(flag.prblm == 2) ? ((*str)[flag.ldc - 1]) = '\0' : 0;
 		free(tmp);
 	}
 }
